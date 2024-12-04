@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
 
@@ -38,14 +39,22 @@ const Navbar = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 space-x-4 font-bold text-white">
        <NavLink to={'/'}>Home</NavLink>
-       <NavLink>All Movies</NavLink>
-       <NavLink>Add Movie</NavLink>
+       <NavLink to={'/allMovies'}>All Movies</NavLink>
+       <NavLink to={'/addMovie'}>Add Movie</NavLink>
        <NavLink>My Favourites</NavLink>
     </ul>
   </div>
   <div className="navbar-end">
+  {
+            user && user?.email ?  <div className="mr-4">
+            <img src={user?.photoURL} alt="" className="w-10 h-10 object-cover rounded-full" title={user?.displayName} />
+           </div>:  <FaUserCircle className='text-5xl mr-4 text-white' />
+          }
     {
-      user && user.email ? <Link onClick={logout}>Logout</Link> : <Link to={'/login'}>Login</Link>
+      user && user?.email ? <Link onClick={logout} className='btn'>Logout</Link> : <div className='space-x-3'>
+        <Link to={'/login'} className='btn'>Login</Link>
+        <Link to={'/register'} className='btn'>register</Link>
+        </div>
     }
   </div>
 </div>

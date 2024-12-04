@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 
+
 const Login = () => {
 
     const {loginUser, setUser, googleLogin} = useContext(AuthContext);
@@ -23,12 +24,12 @@ const Login = () => {
             navigate(location?.state ? location?.state.from : '/')
         })
         .catch(error => {
-            console.log(error.message);
+            setError(error.message);
         })
         
     }
 
-    const handleGooglLogin = () =>{
+    const handleGoogleLogin = () =>{
         googleLogin()
         .then(() =>{
             navigate(location?.state ? location?.state.from : '/')
@@ -37,6 +38,7 @@ const Login = () => {
     return (
         <div className='flex justify-center items-center'>
              <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+              <h2 className='text-4xl font-bold text-white'>Please Login</h2>
       <form className="card-body"  onSubmit={handleSubmit}>
         <div className="form-control">
           <label className="label">
@@ -57,7 +59,7 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
       </form>
-      <button onClick={handleGooglLogin} className='btn'>Google login</button>
+      <button onClick={handleGoogleLogin} className='btn'>Google login</button>
       {error && <p className='text-red-500'>{error}</p>}
       <p className='ml-10 mt-3'>New to this website? <Link className='text-blue-700 font-medium' to={'/register'}>register</Link></p>
     </div>
