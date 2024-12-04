@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const FeaturedMovies = ({movie}) => {
-    const {moviePoster, title, duration, rating, genra, releaseYear, summery} = movie;
+    const { moviePoster, title, duration, rating, genra, releaseYear, summery} = movie;
     return (
         <div className="card bg-base-100 w-96 shadow-xl">
         <figure>
@@ -17,7 +18,7 @@ const FeaturedMovies = ({movie}) => {
           <p>Duration: {duration} min</p>
           <p>Realease Year: {releaseYear}</p>
           <p>{summery}</p>
-        <button className='btn'>see Details</button>
+           <Link className='btn' to={'/movieDetails'}>see Details</Link>
         </div>
       </div>
     );
