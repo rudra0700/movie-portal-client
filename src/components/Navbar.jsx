@@ -41,7 +41,7 @@ const Navbar = () => {
        <NavLink to={'/'}>Home</NavLink>
        <NavLink to={'/allMovies'}>All Movies</NavLink>
        <NavLink to={'/addMovie'}>Add Movie</NavLink>
-       <NavLink>My Favourites</NavLink>
+       <NavLink to={`/myFavourites/${user?.email}`}>My Favourites</NavLink>
     </ul>
   </div>
   <div className="navbar-end">

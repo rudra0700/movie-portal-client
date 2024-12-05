@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import AddMovie from "../pages/AddMovie";
 import AllMovies from "../pages/AllMovies";
 import MovieDetails from "../components/MovieDetails";
+import MyFavourties from "../pages/MyFavourties";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,12 @@ const router = createBrowserRouter([
           path: '/movieDetails',
           element: <MovieDetails></MovieDetails>,
           loader : () => fetch("http://localhost:5000/movies")
+        },
+        {
+          path: '/myFavourites/:email',
+          element: <MyFavourties></MyFavourties>,
+          loader: ({params}) => fetch(`http://localhost:5000/favourites/${params.email}`)
+          
         }
       ]
     },

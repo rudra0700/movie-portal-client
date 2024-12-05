@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 
 const MovieDetails = () => {
     const data = useLoaderData();
     const [allMovies, setAllMovies] = useState(data)
+    const {user} = useContext(AuthContext)
      
 
     const handleDelete = (id) => {
@@ -18,6 +20,21 @@ const MovieDetails = () => {
             setAllMovies(remaining)
         })
     }
+
+    const addToFavourite = (moviePoster, title, duration, rating, genra, releaseYear, email) => {
+        const favourite = {moviePoster, title, duration, rating, genra, releaseYear, email};
+         fetch("http://localhost:5000/favourites", {
+            method: "POST",
+            headers: {
+                "content-type" : "application/json"
+            },
+            body: JSON.stringify(favourite)
+         })
+         .then(res => res.json())
+         .then(data => {
+            console.log(data);
+         })
+    }
     return (
         <div>
                {
@@ -26,10 +43,11 @@ const MovieDetails = () => {
                      <p>{movie?.title}</p>
                      <p>{movie?.releaseYear}</p>
                      <p>{movie?.genra}</p>
+                     <p>{movie?.duration}</p>
                      <p>{movie?.rating}</p>
                      <div className='space-x-2'>
                         <button className='btn' onClick={() => handleDelete(movie._id)}>Delete</button>
-                        <button className='btn'>Favourite</button>
+                        <button className='btn' onClick={() => addToFavourite(movie?.moviePoster, movie?.title, movie?.duration, movie?.rating, movie?.genra, movie?.releaseYear, user?.email)}>Favourite</button>
                      </div>
                      
                 </div>)
