@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const FavouriteMovies = ({favourite, favourites, setFavourites}) => {
     const {_id, moviePoster, title, duration, rating, genra, releaseYear} = favourite;
@@ -32,6 +33,7 @@ const FavouriteMovies = ({favourite, favourites, setFavourites}) => {
     <p>Genra : {genra}</p>
     <p>Realease Year : {releaseYear}</p>
       <button className='btn' onClick={() => handleDelete(_id)}>Delete Favourite</button>
+      <Link className='btn' to={`/updateMovie/${_id}`}>Update Favourite</Link>
   </div>
 </div>
         </div>

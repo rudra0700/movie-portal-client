@@ -7,11 +7,14 @@ import AddMovie from "../pages/AddMovie";
 import AllMovies from "../pages/AllMovies";
 import MovieDetails from "../components/MovieDetails";
 import MyFavourties from "../pages/MyFavourties";
+import ErrorPage from "../components/ErrorPage";
+import UpdateMovie from "../pages/UpdateMovie";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: '/',
@@ -43,8 +46,12 @@ const router = createBrowserRouter([
         {
           path: '/myFavourites/:email',
           element: <MyFavourties></MyFavourties>,
-          loader: ({params}) => fetch(`http://localhost:5000/favourites/${params.email}`)
-          
+          loader: ({params}) => fetch(`http://localhost:5000/favourites/${params.email}`) 
+        },
+        {
+          path: '/updateMovie/:id',
+          element: <UpdateMovie></UpdateMovie>,
+          loader: ({params}) => fetch(`http://localhost:5000/fav/${params.id}`)
         }
       ]
     },
