@@ -9,6 +9,7 @@ import MovieDetails from "../components/MovieDetails";
 import MyFavourties from "../pages/MyFavourties";
 import ErrorPage from "../components/ErrorPage";
 import UpdateMovie from "../pages/UpdateMovie";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
         },
         {
           path: '/addMovie',
-          element: <AddMovie></AddMovie>
+          element: <PrivateRoute><AddMovie></AddMovie></PrivateRoute>
         },
         {
           path: '/allMovies',
@@ -40,12 +41,12 @@ const router = createBrowserRouter([
         },
         {
           path: '/movieDetails',
-          element: <MovieDetails></MovieDetails>,
+          element: <PrivateRoute><MovieDetails></MovieDetails></PrivateRoute>,
           loader : () => fetch("http://localhost:5000/movies")
         },
         {
           path: '/myFavourites/:email',
-          element: <MyFavourties></MyFavourties>,
+          element: <PrivateRoute><MyFavourties></MyFavourties></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/favourites/${params.email}`) 
         },
         {

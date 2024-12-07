@@ -40,8 +40,13 @@ const Navbar = () => {
     <ul className="menu menu-horizontal px-1 space-x-4 font-bold text-white">
        <NavLink to={'/'}>Home</NavLink>
        <NavLink to={'/allMovies'}>All Movies</NavLink>
-       <NavLink to={'/addMovie'}>Add Movie</NavLink>
-       <NavLink to={`/myFavourites/${user?.email}`}>My Favourites</NavLink>
+           {
+              user && <>
+              <NavLink to={'/addMovie'}>Add Movie</NavLink>
+              <NavLink to={`/myFavourites/${user?.email}`}>My Favourites</NavLink>
+              </>
+            }
+           
     </ul>
   </div>
   <div className="navbar-end">
