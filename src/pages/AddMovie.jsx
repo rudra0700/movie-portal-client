@@ -53,7 +53,6 @@ const AddMovie = () => {
        })
        .then(res => res.json())
        .then(data => {
-          console.log(data);
           if(data.insertedId){
             toast.success("Movie added successfully");
             navigate('/')

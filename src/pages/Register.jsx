@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     
@@ -34,7 +36,6 @@ const Register = () => {
         .then(res => {
             const user = res.user;
             setUser(user);
-            console.log(user);
             updateProfileUser({
                 displayName: name,
                 photoURL : photo
@@ -45,7 +46,7 @@ const Register = () => {
 
         })
         .catch(error => {
-            console.log(error.message);
+            toast.error(error.message);
         })
      }
 

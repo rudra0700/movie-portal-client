@@ -9,13 +9,11 @@ const FavouriteMovies = ({favourite, favourites, setFavourites}) => {
     const {_id, moviePoster, title, duration, rating, genra, releaseYear} = favourite;
 
     const handleDelete = (id) => {
-        console.log(id);
         fetch(`https://movie-portal-server-theta.vercel.app/favourites/${id}`, {
           method: "DELETE"
         })
         .then(res => res.json())
         .then(data => {
-          console.log(data);
           if(data.deletedCount > 0){
             toast.success("Movie deleted successfully")
             const remaining = favourites.filter(item => item._id !== id);

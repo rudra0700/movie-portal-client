@@ -17,7 +17,6 @@ const MovieTable = ({movie, allMovies, setAllMovies}) => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             if(data.deletedCount > 0){
               toast.success("Movie Deleted Successfully")
               const remaining = allMovies.filter(movie => movie._id !== id);

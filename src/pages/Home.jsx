@@ -7,7 +7,6 @@ import { FaPlayCircle } from "react-icons/fa";
 const Home = () => {
     const data = useLoaderData();
     const [featuredMovies, setFeaturedMovies] = useState(data)
-    console.log(featuredMovies);
     return (
         <div>
             <Banner></Banner>

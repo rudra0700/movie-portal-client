@@ -19,4 +19,6 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Github link : https://github.com/programming-hero-web-course2/b10-a10-client-side-rudra0700
 
+Live url : https://movie-mania-f1044.web.app
+
 

@@ -41,7 +41,6 @@ const UpdateMovie = () => {
         })
         .then(res => res.json())
         .then(data => {
-           console.log(data);
            if(data.modifiedCount > 0){
             toast.success("Movie Updated successfully in favourite list");
             navigate(`/myFavourites/${user?.email}`)

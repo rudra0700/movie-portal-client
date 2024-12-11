@@ -15,8 +15,6 @@ const AllMovies = () => {
         })
       }, [search])
 
-      console.log(search);
-
     return (
         <div>
                <div className="w-[400px] mx-auto mb-4">
