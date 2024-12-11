@@ -10,6 +10,8 @@ import MyFavourties from "../pages/MyFavourties";
 import ErrorPage from "../components/ErrorPage";
 import UpdateMovie from "../pages/UpdateMovie";
 import PrivateRoute from "../privateRoute/PrivateRoute";
+import Premiere from "../pages/Premiere";
+
 
 const router = createBrowserRouter([
     {
@@ -20,7 +22,7 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>,
-            loader : () => fetch("http://localhost:5000/movies/featured")
+            loader : () => fetch("https://movie-portal-server-theta.vercel.app/movies/featured")
         }, 
         {
             path: '/register',
@@ -37,23 +39,29 @@ const router = createBrowserRouter([
         {
           path: '/allMovies',
           element: <AllMovies></AllMovies>,
-          loader : () => fetch("http://localhost:5000/movies")
+          loader : () => fetch("https://movie-portal-server-theta.vercel.app/movies")
         },
         {
           path: '/movieDetails',
           element: <PrivateRoute><MovieDetails></MovieDetails></PrivateRoute>,
-          loader : () => fetch("http://localhost:5000/movies")
+          loader : () => fetch("https://movie-portal-server-theta.vercel.app/movies")
         },
         {
           path: '/myFavourites/:email',
           element: <PrivateRoute><MyFavourties></MyFavourties></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/favourites/${params.email}`) 
+          loader: ({params}) => fetch(`https://movie-portal-server-theta.vercel.app/favourites/${params.email}`) 
         },
         {
           path: '/updateMovie/:id',
           element: <UpdateMovie></UpdateMovie>,
-          loader: ({params}) => fetch(`http://localhost:5000/fav/${params.id}`)
+          loader: ({params}) => fetch(`https://movie-portal-server-theta.vercel.app/fav/${params.id}`)
+        },
+        {
+          path: '/premiere',
+          element: <Premiere></Premiere>
         }
+       
+        
       ]
     },
   ]);

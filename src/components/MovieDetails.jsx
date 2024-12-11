@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import MovieTable from './MovieTable';
 
 
 const MovieDetails = () => {
@@ -10,7 +11,7 @@ const MovieDetails = () => {
      
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/movies/${id}`, {
+        fetch(`https://movie-portal-server-theta.vercel.app/movies/${id}`, {
             method: "DELETE"
         })
         .then(res => res.json())
@@ -23,7 +24,7 @@ const MovieDetails = () => {
 
     const addToFavourite = (moviePoster, title, duration, rating, genra, releaseYear, email) => {
         const favourite = {moviePoster, title, duration, rating, genra, releaseYear, email};
-         fetch("http://localhost:5000/favourites", {
+         fetch("https://movie-portal-server-theta.vercel.app/favourites", {
             method: "POST",
             headers: {
                 "content-type" : "application/json"
@@ -37,7 +38,7 @@ const MovieDetails = () => {
     }
     return (
         <div>
-               {
+               {/* {
                 allMovies.map(movie => <div key={movie._id} className='flex justify-between items-center space-y-10'>
                     <img src={movie?.moviePoster} alt="" className='w-20' />
                      <p>{movie?.title}</p>
@@ -51,6 +52,9 @@ const MovieDetails = () => {
                      </div>
                      
                 </div>)
+               } */}
+               {
+                allMovies.map(movie => <MovieTable key={movie._id} movie={movie}></MovieTable>)
                }
             <Link className='btn' to={'/allMovies'}>See All Movies</Link>
         </div>

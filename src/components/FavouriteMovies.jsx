@@ -6,7 +6,7 @@ const FavouriteMovies = ({favourite, favourites, setFavourites}) => {
 
     const handleDelete = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/favourites/${id}`, {
+        fetch(`https://movie-portal-server-theta.vercel.app/favourites/${id}`, {
           method: "DELETE"
         })
         .then(res => res.json())

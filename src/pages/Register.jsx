@@ -58,7 +58,7 @@ const Register = () => {
     return (
         <div className='flex justify-center items-end mt-8'>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <h2 className='text-4xl font-bold text-white'>Please Register</h2>
+            <h2 className='text-4xl font-bold text-white text-left ml-8'>Sign Up</h2>
       <form className="card-body" onSubmit={handleSubmit}>
         <div className="form-control">
           <label className="label">
@@ -88,12 +88,12 @@ const Register = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Register</button>
+          <button className="btn bg-[#E50914] text-white rounded-md">Sign Up</button>
         </div>
       </form>
-      <button onClick={handleGoogleLogin} className='btn'>Google login</button>
+      <button onClick={handleGoogleLogin} className='btn w-64 mx-auto rounded-md'>Google login</button>
       {error && <p className='text-red-500'>{error}</p>}
-      <p className='ml-10 mt-3'>Already have an account? <Link className='text-blue-700 font-medium' to={'/login'}>login</Link></p>
+      <p className='ml-10 mt-3'>Already have an account? <Link className='text-blue-700' to={'/login'}>login</Link></p>
     </div>
         </div>
     );

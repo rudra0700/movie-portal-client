@@ -3,12 +3,13 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import { FaUserCircle } from "react-icons/fa";
 
+
 const Navbar = () => {
 
   const {user, logout} = useContext(AuthContext);
 
     return (
-        <div className="navbar bg-base-100 border-2 border-red-600">
+        <div className="navbar bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -34,12 +35,13 @@ const Navbar = () => {
             <NavLink>My Favourites</NavLink>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">Movie Mania</a>
+    <a className="btn btn-ghost text-3xl font-bold text-[#E50914]">Movie Mania</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 space-x-4 font-bold text-white">
        <NavLink to={'/'}>Home</NavLink>
        <NavLink to={'/allMovies'}>All Movies</NavLink>
+       <NavLink to={'/premiere'}>Premiere</NavLink>
            {
               user && <>
               <NavLink to={'/addMovie'}>Add Movie</NavLink>
@@ -56,9 +58,9 @@ const Navbar = () => {
            </div>:  <FaUserCircle className='text-5xl mr-4 text-white' />
           }
     {
-      user && user?.email ? <Link onClick={logout} className='btn'>Logout</Link> : <div className='space-x-3'>
-        <Link to={'/login'} className='btn'>Login</Link>
-        <Link to={'/register'} className='btn'>register</Link>
+      user && user?.email ? <Link onClick={logout} className='bg-[#E50914] text-white btn rounded-sm font-medium'>Logout</Link> : <div className='space-x-3'>
+        <Link to={'/login'} className='bg-[#E50914] text-white rounded-md font-medium btn'>Sign In</Link>
+        <Link to={'/register'} className='bg-[#E50914] text-white btn rounded-md font-medium'>Sign Up</Link>
         </div>
     }
   </div>
