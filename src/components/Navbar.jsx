@@ -28,14 +28,15 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-bold border-2 border-white text-left space-y-2">
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-bold text-left space-y-2">
            <NavLink to={'/'}>Home</NavLink>
-            <NavLink>All Movies</NavLink>
-            <NavLink>Add Movie</NavLink>
-            <NavLink>My Favourites</NavLink>
+            <NavLink to={'/allMovies'}>All Movies</NavLink>
+            <NavLink to={'/premiere'}>Premiere</NavLink>
+            <NavLink to={'/addMovie'}>Add Movie</NavLink>
+            <NavLink to={`/myFavourites/${user?.email}`}>My Favourites</NavLink>
       </ul>
     </div>
-    <a className="btn btn-ghost text-3xl font-bold text-[#E50914]">Movie Mania</a>
+    <a className="btn btn-ghost text-sm md:text-xl lg:text-3xl font-bold text-[#E50914]">Movie Mania</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 space-x-4 font-bold text-white">
@@ -58,7 +59,7 @@ const Navbar = () => {
            </div>:  <FaUserCircle className='text-5xl mr-4 text-white' />
           }
     {
-      user && user?.email ? <Link onClick={logout} className='bg-[#E50914] text-white btn rounded-sm font-medium'>Logout</Link> : <div className='space-x-3'>
+      user && user?.email ? <Link onClick={logout} className='bg-[#E50914] text-white btn rounded-sm font-medium'>Logout</Link> : <div className='flex space-x-3'>
         <Link to={'/login'} className='bg-[#E50914] text-white rounded-md font-medium btn'>Sign In</Link>
         <Link to={'/register'} className='bg-[#E50914] text-white btn rounded-md font-medium'>Sign Up</Link>
         </div>

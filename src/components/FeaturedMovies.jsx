@@ -8,16 +8,17 @@ const FeaturedMovies = ({movie}) => {
         <figure className='border-2 border-black'>
           <img
             src={moviePoster}
-            alt="movie-poster" />
+            alt="movie-poster"
+            className='' />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">
-            {title}
-            <div className="badge badge-secondary">{rating}</div>
+          <h2 className="text-xl font-bold">
+             <span className=''>{title}</span>
+            <div className="badge badge-secondary ml-2 rounded-full">{rating}</div>
           </h2>
-          <p className='text-left'>Duration: {duration} min</p>
-          <p className='text-left'>Realease Year: {releaseYear}</p>
-           <Link className='btn' to={'/movieDetails'}>see Details</Link>
+          <p className='text-left ml-14'>Duration: {duration} min</p>
+          <p className='text-left ml-14'>Realease Year: {releaseYear}</p>
+           <Link className='btn w-2/4 mx-auto rounded-full mt-3 hover:bg-[#E50914] text-white' to={'/movieDetails'}>see Details</Link>
         </div>
       </div>
     );

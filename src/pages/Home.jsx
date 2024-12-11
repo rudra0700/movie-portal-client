@@ -81,37 +81,37 @@ const Home = () => {
              </div>
              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6'>
                  <div>
-                    <img src="https://i.ibb.co.com/86xBgxb/beekeper.jpg" alt="" className='w-52' />
+                    <img src="https://i.ibb.co.com/86xBgxb/beekeper.jpg" alt="" className='w-full lg:w-52' />
                      <div className='mt-2'>
                         <p className='text-left text-sm'>The BeeKeeper</p>
                         <p className='text-left text-sm'>English</p>
                      </div>
                  </div> <div>
-                    <img src="https://i.ibb.co.com/qpjZQK7/cotton-Tail.jpg" alt="" className='w-52' />
+                    <img src="https://i.ibb.co.com/qpjZQK7/cotton-Tail.jpg" alt="" className='w-full lg:w-52' />
                      <div className='mt-2'>
                         <p className='text-left text-sm'>CottonTail</p>
                         <p className='text-left text-sm'>English</p>
                      </div>
                  </div> <div>
-                    <img src="https://i.ibb.co.com/JRSKNDP/gumastan.jpg" alt="" className='w-52' />
+                    <img src="https://i.ibb.co.com/JRSKNDP/gumastan.jpg" alt="" className='w-full lg:w-52' />
                      <div className='mt-2'>
                         <p className='text-left text-sm'>Gumastan</p>
                         <p className='text-left text-sm'>Telegu</p>
                      </div>
                  </div> <div>
-                    <img src="https://i.ibb.co.com/KFRqxzK/thekku-vedakku.jpg" alt="" className='w-52' />
+                    <img src="https://i.ibb.co.com/KFRqxzK/thekku-vedakku.jpg" alt="" className='w-full lg:w-52' />
                      <div className='mt-2'>
                         <p className='text-left text-sm'>Thekku Vedakku</p>
                         <p className='text-left text-sm'>Telegu</p>
                      </div>
                  </div> <div>
-                    <img src="https://i.ibb.co.com/4FdrZvs/the-crow.jpg" alt="" className='w-52' />
+                    <img src="https://i.ibb.co.com/4FdrZvs/the-crow.jpg" alt="" className='w-full lg:w-52' />
                      <div className='mt-2'>
                         <p className='text-left text-sm'>The Crow</p>
                         <p className='text-left text-sm'>English</p>
                      </div>
                  </div> <div>
-                    <img src="https://i.ibb.co.com/hYM7Rfc/dancing-village.jpg" alt="" className='w-52' />
+                    <img src="https://i.ibb.co.com/hYM7Rfc/dancing-village.jpg" alt="" className='w-full lg:w-52' />
                      <div className='mt-2'>
                         <p className='text-left text-sm'>Dancing Village</p>
                         <p className='text-left text-sm'>Indonesian</p>
